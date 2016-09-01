@@ -6,6 +6,15 @@ Common use case : create a new database, fingerprint a file, save the database
 
 See here for other usage examples
 
+## Installation
+Requires OpenSSL, GNU Readline, and Ncurses library, during compilation.
+They are required during runtime if not compiled statically (current makefile is configured to compile statically).
+
+## References/Resources
+
+## Credits
+UX/UI feedback, general feedback : [M. D. Chia](https://github.com/mdchia)
+
 ## Questions you may want to ask :
 ### What can I use ffprinter for?
 You can :
@@ -18,7 +27,7 @@ You can :
 ### Why wouldn't I want to just use a list of checksums stored in a text file?
 Some reasons:
   - no hierachical structure in the text file
-  - no (convenient) interface dedicated for access the text file, while ffprinter's interface is designed for easy traversal and access of file fingerprints
+  - no (convenient) interface dedicated for accessing the text file, while ffprinter's interface is designed for easy traversal and access of file fingerprints
   - no tagging, no attachment of user message, no quick searching on particular fields, no timestamps...
 
 #### Obviously, a text file can be more convenient for myriad of purposes(portable, easier to recover, no dedicated software needed etc). So choose wisely.
