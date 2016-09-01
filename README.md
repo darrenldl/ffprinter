@@ -7,6 +7,7 @@ Common use case : create a new database, fingerprint a file, save the database
 See here for other usage examples
 
 ## Installation
+Requires POSIX(mainly for time related functions).
 Requires OpenSSL, GNU Readline, and Ncurses library, during compilation.
 They are required during runtime if not compiled statically (current makefile is configured to compile statically).
 
