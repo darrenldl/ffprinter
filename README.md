@@ -16,6 +16,9 @@ They are required during runtime if not compiled statically (current makefile is
 ## Credits
 UX/UI feedback, general feedback : [M. D. Chia](https://github.com/mdchia)
 
+## License
+GPLv3
+
 ## Questions you may want to ask :
 ### What can I use ffprinter for?
 You can :
