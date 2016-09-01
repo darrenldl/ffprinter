@@ -1,5 +1,5 @@
 # ffprinter
-Manage file fingerprints in a structure similar to accessing a file system
+Manage file fingerprints in a manner similar to accessing a file system directory structure
 
 ## Usage
 Common use case : create a new database, fingerprint a file, save the database
