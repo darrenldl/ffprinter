@@ -65,6 +65,6 @@ In terms of if ffprinter can be attacked (easily)
   - Loading of database contains significant amount of code for format checking. Fuzzing is under progress however.
   - Command prompt relies on GNU Readline library. Given there is no issue in Readline, then there should be very little risk in using the command prompt interface. Fuzzing is under progress however.
   - No special operation is done when reading files during fingerprinting process. Major library used is OpenSSL, which is used for hasing(SHA1, SHA256, SHA512). Fuzzing is under progress however.
-  - ffprinter does not connect to network, the only interaction to outside worldwould be command prompt, reading/writing of database file, and read only access of files during fingerprinting.
+  - ffprinter does not connect to network, the only interaction to outside world would be command prompt, reading/writing of database file, and read only access of files during fingerprinting.
 
 #### Regardless, it is good practice to run ffprinter as a normal (and restricted) user, rather than root or account with any privilege, unless necessary.
