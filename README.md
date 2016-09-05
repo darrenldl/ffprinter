@@ -19,14 +19,18 @@ UX/UI feedback, general feedback : [M. D. Chia](https://github.com/mdchia)
 ## License
 GPLv3
 
-## Questions you may want to ask :
+## Security warning
+  - Do not fingerprint extremely sensitive files(e.g. keyfiles), unless the database is well protected, as the fingerprints can reveal (partial) content of the files, due to small extractions of file content stored in fingerprint, or due to bruteforcing of file content using information of file checksum, file size, section checksum, and section size
+
+## Questions you may want to ask
 ### What can I use ffprinter for?
-You can :
+Some things you can do :
   - search for a fingerprinted file on your existing system
   - verify integrity of files(recursively)
   - check if a file is recorded in the database already(useful for avoiding duplicates)
   - tag files(stored in database)
   - attach message to files(stored in database)
+  - attach a newer fingerprint to an older fingerprint to achieve some level of version control
 
 ### Why wouldn't I want to just use a list of checksums stored in a text file?
 Some reasons:
