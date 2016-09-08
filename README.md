@@ -30,7 +30,7 @@ GPLv3
 
 ## Future plan
   - Testing (see question below on the safety of using ffprinter)
-  - Porting to C++. ffprinter served as an educational experiment to me, which I expected to fail completely. Now that it didn't, I would like to learn C++ and practice it via porting to C++, since I have never been a great C++ programmer.
+  - Porting to C++. ffprinter served as an educational experiment to me, which I expected to fail completely. Now that it didn't, I would like to learn C++ and practice it via porting to C++, since I have never been a great C++ programmer. Final port, when finished, will appear in this repo, under folder named src++.
 
 ## Notes to people wanting to do something similar
   - Technical design documents will be put up, and they alone should suffice in describing what's going on in ffprinter without digging through the code. I will add my remark and criticisms in the design documents which will hopefully be useful to people who are looking into similar projects of similar scale.
