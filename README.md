@@ -22,6 +22,19 @@ GPLv3
 ## Security warning
   - Do not fingerprint extremely sensitive files(e.g. keyfiles), unless the database is well protected, as the fingerprints can reveal (partial) content of the files, due to small extractions of file content stored in fingerprint, or due to bruteforcing of file content using information of file checksum, file size, section checksum, and section size
 
+## Remark after finishing the project
+  - Writing this in C was not terribly brilliant. While fully functional and work as well as I originally intended, current lack of concurrency in ffprinter(C ver.) makes certain operations less efficient as they could be(multi hash computation).
+  - Also, despite use of C macros as simulation of templates, a lot of code duplications were very difficult to avoid, and C++ templates would be very useful.
+  - As it stands, extending ffprinter is more difficult than one would like as well(e.g. adding another hash function).
+  - Finally, ffprinter(C ver.) was written with purely the terminal interface in mind(thus everything is sequential), so linking the code to any form of GUI, which would be handy to have, can be difficult. And database model used is not concurrent at all, which limits the efficiency in a GUI environment.
+
+## Future plan
+  - Testing (see question below on the safety of using ffprinter)
+  - Porting to C++. ffprinter served as an educational experiment to me, which I expected to fail completely. Now that it didn't, I would like to learn C++ and practice it via porting to C++, since I have never been a great C++ programmer.
+
+## Notes to people wanting to do something similar
+  - Technical design documents will be put up, and they alone should suffice in describing what's going on in ffprinter without digging through the code. I will add my remark and criticisms in the design documents which will hopefully be useful to people who are looking into similar projects of similar scale.
+
 ## Questions you may want to ask
 ### What can I use ffprinter for?
 Some things you can do :
