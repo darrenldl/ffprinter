@@ -1,6 +1,33 @@
 # ffprinter
 Manage file fingerprints in a manner similar to accessing a file system directory structure
 
+## Update 2017-03-12
+This project has been halted/terminated, at least with this C version. ffprinter may be rewritten in another language in future.
+
+### Project timeline
+  - Dec 2015 - Feb 2016 : Drafting and design phase
+  - Feb 2016 - Sep 2016 : Implementation phase
+  
+### Summary of experience over the course of this project
+While this project is a failed attempt at achieving my original goal, the work I made towards this project have given me great insight into different aspects such as designs in data structres, algorithms, best coding practices, file serialization/deserialization, memory leak avoidance, unit testing, reducing repeated code via use of code generation techniques(C macro in this particular context).
+
+A similar project I discovered which does most of what I originally envisioned for ffprinter would be TMSU (https://github.com/oniony/TMSU), albeit with slightly different emphasis and design.
+
+Following is an elaboration on the aspects in which I feel I have gained reasonable insights in :
+
+#### File serialization/deserialization
+While most likely trivial in other higher level programming languages, implementation this from scratch in C exposed me to the issue of handling differences in endianness of CPU, and how that may affect one's file format design.
+
+Additionally, my specific code files also reflected how fragile the serialization/deserialization code can be when done manually, and overall cumbersomeness of updating the code, as well as difficult maintenance due to repeated code.
+
+Possible solution in retrospect : Code generation using another language, which is quite common for many projects
+
+#### Memory leak avoidance
+
+#### Unit testing
+
+#### C macro limitation
+
 ## Usage
 Common use case : create a new database, fingerprint a file, save the database
 
