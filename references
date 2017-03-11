@@ -1,0 +1,14 @@
+Sources are only referenced when code is directly copied and resulted (potentially modified) copy is almost identitcal to the original one, or the difference has no significance and thus identitcal
+Usage of libraries is not documented here
+
+endian detection code (lib/order32.h) is copied from
+    [1] https://stackoverflow.com/questions/2100331/c-macro-definition-to-determine-big-endian-or-little-endian-machine
+        see lib/order32.h for full reference
+
+file system related examples and code
+    used in function fpwd under ffp_term
+        [1] http://stackoverflow.com/a/298518
+    used in function fls under ffp_term
+        [1] http://stackoverflow.com/a/12506
+        [1a]    (reference cited in [1])
+            http://www.gnu.org/software/libtool/manual/libc/Simple-Directory-Lister.html

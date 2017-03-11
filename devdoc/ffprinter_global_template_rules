@@ -1,0 +1,2 @@
+Function templates should
+    - always be silent; return error using return code only

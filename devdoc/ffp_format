@@ -1,0 +1,128 @@
+// Assume CHAR_BIT == 8
+// All non byte arrays(not char[] or unsigned char []) are stored in big endian
+// All strings(char []) stored are NOT null terminated
+
+// ------- database file start -------
+unsigned char[15]   preamble
+char[5]             version of software generated this file
+uint64_t            total number of branches
+uint64_t            total number of entries
+
+  // ------- entry start -------
+  // there may be more than one entry
+  unsigned char[8]  branch id
+  unsigned char[8]  entry id
+  unsigned char[8]  parent entry id
+  uint8_t           type of entry(file, group)
+  uint64_t          number of children
+
+  // created by marker indicates whether the
+  // entry is created manually (via touch or mkdir)
+  // or automatically in system (via fp)
+  unsigned char     created by marker
+
+  uint64_t                file name length
+  char[file_name_len]     file name
+
+  // field presence indicator bitmap indicates presence/absence of
+  //    - tag string
+  //    - user message
+  //    - time of addition
+  //    - time of modification
+  //    - user specified time
+  //    - file data
+  // following fields are mandatory and absence indicate corruption of database
+  //    - (fields above this comment block)
+  uint64_t                field presence indicator bitmap
+
+  // below 2 tag related fields present only if indicated so in bitmap (see above)
+  uint64_t                length of tag string
+  char[tag_str_len]       tag string, which contains all tags
+
+  // below 2 user message related fields present only if indicated so in bitmap (see above)
+  uint64_t                user message length
+  char[user_msg_len]      user message
+
+  uint8_t         time of addition, tm_sec
+  uint8_t         time of addition, tm_min
+  uint8_t         time of addition, tm_hour
+  uint8_t         time of addition, tm_mday
+  uint8_t         time of addition, tm_mon
+  int64_t         time of addition, tm_year
+  uint8_t         time of addition, tm_wday
+  uint16_t        time of addition, tm_yday
+  int8_t          time of addition, tm_isdat
+
+  uint8_t         time of modification, tm_sec
+  uint8_t         time of modification, tm_min
+  uint8_t         time of modification, tm_hour
+  uint8_t         time of modification, tm_mday
+  uint8_t         time of modification, tm_mon
+  int64_t         time of modification, tm_year
+  uint8_t         time of modification, tm_wday
+  uint16_t        time of modification, tm_yday
+  int8_t          time of modification, tm_isdat
+
+  uint8_t         user specified time, tm_sec
+  uint8_t         user specified time, tm_min
+  uint8_t         user specified time, tm_hour
+  uint8_t         user specified time, tm_mday
+  uint8_t         user specified time, tm_mon
+  int64_t         user specified time, tm_year
+  uint8_t         user specified time, tm_wday
+  uint16_t        user specified time, tm_yday
+  int8_t          user specified time, tm_isdat
+
+    // ------- file data start -------
+    uint64_t        file size
+
+    uint16_t        number of checksums
+
+      // ------- checksum start -------
+      // there may be more than one checksum
+      uint16_t                checksum type
+      uint16_t                checksum length -> let as csum_len
+      unsigned char[csum_len] checksum result
+      // ------- checksum end -------
+
+    uint32_t        number of extracts
+
+      // ------- extract start -------
+      // there may be more than one extract
+      uint64_t                position of extract
+      uint16_t                length of extract -> let as ext_len
+      unsigned char[ext_len]  extract sample
+      // ------- extract end -------
+
+    uint64_t        number of sections
+    uint64_t        normal section size
+    uint64_t        last section size
+
+      // ------- section start -------
+      // there may be more than one section
+      uint64_t        section starting position
+      uint64_t        section ending position
+
+      uint16_t        number of checksums
+
+        // ------- checksum start -------
+        // there may be more than one checksum
+        uint16_t                checksum type
+        uint16_t                checksum length -> let as csum_len
+        unsigned char[csum_len] checksum result
+        // ------- checksum end -------
+
+      uint32_t        number of extracts
+
+        // ------- extract start -------
+        // there may be more than one extract
+        uint64_t                position of extract
+        uint16_t                length of extract -> let as ext_len
+        unsigned char[ext_len]  extract sample
+        // ------- extract end -------
+      // ------- section end -------
+    // ------- file data end -------
+  // ------- entry end -------
+
+unsigned char[15]   tail
+// ------- database file end -------

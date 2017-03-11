@@ -1,0 +1,26 @@
+General template naming rule :
+    Use "generic" at the front
+    or in place of where the tag will appear
+
+    Refer to existing macros/structures/etc if the following rule set is not clear
+
+    Improvement is always welcome
+
+Structure naming rule :
+    - For each attribute(e.g. file name, checksum), there is an attribute tag(tag_attr in macro)
+    - For each target(e.g. entry, file_data), there is an target tag(tag_target in macro)
+    - Name of a translation structure is always constructed using tag_attr##_to_##tag_target
+    - Name of an existence matrix is always constructed using tag_attr##_exist_mat
+Function naming rule :
+    - Name of a function should be constructed using(in the following order as well)
+        action
+        target object/attribute to be added/deleted/manipulated
+        to/from, depending on the direction and action, use if needed
+        target object or structure to add to/delete from, use if needed
+      Example:
+        add_fn_to_e_to_layer2_arr, contains all four elements
+        init_fn_to_e, contains only first two necessary elements
+Additional rule :
+    - Number based parameter to macro(which should be constant) should be all caps
+    - Always surrouned number based parameter to macro(size for instace) with parantheses, unless use is very obvious and no ambiguity is made when neglected and no potential arithmetic errors will occur
+    - Use of macro should not require semi-colon at the end(i.e. add it in the template)
