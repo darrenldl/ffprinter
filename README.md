@@ -13,7 +13,7 @@ While this project is a failed attempt at achieving my original goal, the work I
 
 A similar project I discovered which does most of what I originally envisioned for ffprinter would be TMSU (https://github.com/oniony/TMSU), albeit with slightly different emphasis and design.
 
-Following is an elaboration on the aspects in which I feel I have gained reasonable insights in :
+### Following is an elaboration/reflection on the aspects in which I feel I have gained reasonable insights in :
 
 #### File serialization/deserialization
 While most likely trivial in other higher level programming languages, implementation this from scratch in C exposed me to the issue of handling differences in endianness of CPU, and how that may affect one's file format design.
@@ -23,10 +23,22 @@ Additionally, my specific code files also reflected how fragile the serializatio
 Possible solution in retrospect : Code generation using another language, which is quite common for many projects
 
 #### Memory leak avoidance
+Prevention of memory leak in C has been problematic, and this has raised issues in security related projects(e.g. OpenSSL).
+The major difficulty comes from the fact that C compilers often optimize data wiping code away, and compilers are inconsistent in treating "volatile" operations even when developers do use "volatile" in hope to avoid such issues.
+
+Most obvious alternative in this regard would be using Rust or whichever language that provides explicit memory operations which are guaranteed in standard to not be optimized away.
 
 #### Unit testing
+All the test cases are written manually in this project. While they have been effective in ensuring code updates do not break certain functionalities, they have been ineffective in catching subtle bugs which often only reveal after a more involved manual testing.
+
+Adopting a functional programming paradigm(or mainly the idea of separating code into modules which has no side effects) would have been helpful in isolating problems and pinpointing the location of error. Additionally, using a language which supports QuickCheck and various other auto testing framework would reduce errors and development time tremendously.
 
 #### C macro limitation
+Since no other macro system was used, C preprocessor was the only option in reducing code repetition. However, due to it being a simple textual replacement system, it has proven to be difficult to debug, and a lot of the times the macro is written from an already working code to allow easier debugging.
+
+Macro systems in Racket, Rust, template system in C++, would have been helpful in avoiding repeated code.
+
+### This is the end of the summary, below is the original project description
 
 ## Usage
 Common use case : create a new database, fingerprint a file, save the database
